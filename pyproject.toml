@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "treehole-word-cloud"
+version = "0.1.0"
+description = ""
+authors = ["KYLN24 <1296845690@qq.com>"]
+readme = "README.md"
+packages = [{include = "treehole_word_cloud"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[tool.poetry.group.dev.dependencies]
+yapf = "^0.32.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
