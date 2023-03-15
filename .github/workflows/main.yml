@@ -1,0 +1,10 @@
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: "0 0 * * *"
+
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+    - run: curl -X ${{ secrets.WEBHOOK }}
