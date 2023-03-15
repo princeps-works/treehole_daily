@@ -7,4 +7,4 @@ jobs:
   job:
     runs-on: ubuntu-latest
     steps:
-    - run: curl -X ${{ secrets.WEBHOOK }}
+    - run: curl -X POST ${{ secrets.WEBHOOK }}
