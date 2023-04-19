@@ -12,13 +12,13 @@ def main():
 
     sql = f"select content from fduhole.floor where updated_at between '{yesterday}' and '{today}' and deleted = 0"
 
-    text = get_text(os.environ.get('DB_URL'), sql)
+    text = get_text(os.environ.get("DB_URL"), sql)
     wc = texts_2_word_cloud(text)
-    wc.to_file(f'./data/output/{yesterday}.png')
-    with open(f'./data/output/{yesterday}.png', 'rb') as f:
+    wc.to_file(f"./data/output/{yesterday}.png")
+    with open(f"./data/output/{yesterday}.png", "rb") as f:
         send(f)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     main()
