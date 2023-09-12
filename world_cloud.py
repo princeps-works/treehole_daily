@@ -51,7 +51,9 @@ def texts_2_word_cloud(texts: list[str]) -> WordCloud:
             and (word.isalnum() or check_contain_chinese(word))
         ):
             counter[word] += 1
-
+    sorted_items = sorted(counter.items(), key=lambda x: x[1], reverse=True)
+    top_10 = sorted_items[:10]
+    result_dict = dict(top_10)
     logging.info("Generating word cloud")
     return WordCloud(
         font_path="./data/font/SourceHanSansSC-Regular.otf",
@@ -59,4 +61,4 @@ def texts_2_word_cloud(texts: list[str]) -> WordCloud:
         width=4096,
         height=2160,
         margin=10,
-    ).generate_from_frequencies(counter)
+    ).generate_from_frequencies(counter) ,result_dict
