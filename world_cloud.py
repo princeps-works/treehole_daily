@@ -60,4 +60,4 @@ def texts_2_word_cloud(texts: list[str]) -> WordCloud:
         width=4096,
         height=2160,
         margin=10,
-    ).generate_from_frequencies(counter) ,sorted_dict.items()[:3]
+    ).generate_from_frequencies(counter) ,sorted_dict.items()[:10]
