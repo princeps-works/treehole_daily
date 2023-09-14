@@ -13,6 +13,7 @@ def main():
     sql1 = f"select content from fduhole.floor where updated_at between '{yesterday}' and '{today}' and deleted = 0"
     sql2 = f"select content,like from fduhole.floor where created_at between '{yesterday}' and '{today}' and deleted = 0"
     text1 = get_text(os.environ.get("DB_URL"), sql1) 
+    text2 = get_text(os.environ.get("DB_URL"), sql2) 
     wc = texts_2_word_cloud(text1)
     wc.to_file(f"./data/output/{yesterday}.png")
     with open(f"./data/output/{yesterday}.png", "rb") as f:
