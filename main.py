@@ -15,6 +15,9 @@ def main():
     text1 = get_text(os.environ.get("DB_URL"), sql1) 
     text2 = get_text(os.environ.get("DB_URL"), sql2) 
     wc，command = texts_2_word_cloud(text1)
+    text_command = ''
+    for wds in command:
+        text_command += '
     wc.to_file(f"./data/output/{yesterday}.png")
     
     with open(f"./data/output/{yesterday}.png", "rb") as f:
