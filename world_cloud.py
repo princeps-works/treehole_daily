@@ -13,7 +13,7 @@ def get_text(db_url: str, sql: str):
     sql = sqlalchemy.text(sql)
     with engine.connect() as conn:
         df = pd.read_sql(sql=sql, con=conn)
-    return df.to_numpy().flatten().tolist(), df.to_numpy().tolist()
+    return df.to_numpy()
 
 
 def check_contain_chinese(check_str):
