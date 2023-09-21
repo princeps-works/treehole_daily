@@ -67,6 +67,8 @@ def news_drawing():
     image_path3 = "./treehole.png"
     im2 = Image.open(image_path2)
     im3 = Image.open(image_path3)
+
+    
     ##setting   
     ImageFont.load_default()
     page_width = 580  # 页面宽度，以像素为单位
