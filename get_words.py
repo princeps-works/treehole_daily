@@ -10,9 +10,11 @@ def news_drawing():
     today = datetime.date.today()
     delta = datetime.timedelta(days=-1)
     yesterday = today + delta
+    sql1 = f"select content from fduhole.floor where updated_at between '{yesterday}' and '{today}' and deleted = 0"
     sql2 = f"select content,`like`,hole_id from fduhole.moderator_floor where created_at between '{yesterday}' and '{today}' and deleted = 0;"
     sql3 = f"select dau from fduhole.moderator_dau LIMIT 1 ;"
     sql4 = f"select mau from fduhole.moderator_mau LIMIT 1 ;"
+    text_two_words = get_text(os.environ.get("DB_URL"),sql1).tolist().flatten()
     text = get_text(os.environ.get("DB_URL"),sql2).tolist()
     dau = get_text(os.environ.get("DB_URL"),sql3).tolist()
     mau = get_text(os.environ.get("DB_URL"),sql4).tolist()
@@ -57,7 +59,7 @@ def news_drawing():
     message = "到此为止啦   *:\(￣︶￣)/:*   "
     text_mascot=cowsay(message, cow=today_mascot)
     text_command=''
-    wc，command = texts_2_word_cloud(text1)
+    wc，command = texts_2_word_cloud(text_two_words)
     for w,n in command:
         text_command += "关键词“{}”出现了 {} 次".format(w,n)+'\n'
     wc.to_file(f"./data/output/{yesterday}/wordscloud.png")
