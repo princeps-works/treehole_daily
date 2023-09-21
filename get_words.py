@@ -108,5 +108,5 @@ def news_drawing():
     draw.text((50,500+30*(count_line+40)),"今日吉祥物："+today_mascot,title_color,font=mascot_font2)
     draw.text((0,510+30*(count_line+41)),'—— '*10,title_color,font=body_font1)
     page.paste(im3_new, (0, 480+30*(count_line+43)))
-    return  page.tofile(f"./data/output/{yesterday}/news.png")
+    return  page.tofile(f"./data/output/{yesterday}/newspaper.png")
     
