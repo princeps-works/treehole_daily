@@ -56,18 +56,17 @@ def news_drawing():
     today_mascot = random.choice(mascot) 
     message = "到此为止啦   *:\(￣︶￣)/:*   "
     text_mascot=cowsay(message, cow=today_mascot)
-    image_path1 = "./data/output/{yesterday}.png"
+    text_command=''
+    wc，command = texts_2_word_cloud(text1)
+    for w,n in command:
+        text_command += "关键词“{}”出现了 {} 次".format(w,n)+'\n'
+    wc.to_file(f"./data/output/{yesterday}/wordscloud.png")
+    image_path1 = "./data/output/{yesterday}/wordscloud.png"
     im1 = Image.open(image_path1)
     image_path2 = "./background2.png"
     image_path3 = "./treehole.png"
     im2 = Image.open(image_path2)
     im3 = Image.open(image_path3)
-    text_command=''
-    wc，command = texts_2_word_cloud(text1)
-    for w,n in command:
-        text_command += "关键词“{}”出现了 {} 次".format(w,n)+'\n'
-    
-    
     ##setting   
     ImageFont.load_default()
     page_width = 580  # 页面宽度，以像素为单位
