@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw, ImageFont
 import pyfiglet
 from cowsay import cowsay
 import random
-from world_cloud import get_text
+import world_cloud 
 
 def news_drawing():
     ##get words
