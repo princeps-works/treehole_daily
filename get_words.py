@@ -4,8 +4,9 @@ import pyfiglet
 from cowsay import cowsay
 import random
 from world_cloud import get_text
-##get words
-def words():
+
+def news_drawing():
+    ##get words
     today = datetime.date.today()
     delta = datetime.timedelta(days=-1)
     yesterday = today + delta
@@ -65,4 +66,46 @@ def words():
     wc，command = texts_2_word_cloud(text1)
     for w,n in command:
         text_command += "关键词“{}”出现了 {} 次".format(w,n)+'\n'
-    return text_command, im1, im2, im3, message, text_mascot, count_line
+    
+    
+    ##setting   
+    ImageFont.load_default()
+    page_width = 580  # 页面宽度，以像素为单位
+    page_height = count_line*30 + 2190  # 页面高度，以像素为单位
+    background_color = (255, 255, 255)  # 页面背景颜色
+    im1_new = im1.resize((500,400), box=None, reducing_gap=None)
+    im2_new = im2.resize((580,page_height), box=None, reducing_gap=None)
+    im3_new = im3.resize((580,500), box=None, reducing_gap=None)
+    title_text1 = "树洞日报"
+    title_text2 = "\n \n Treehole Daily"
+    title_font1 = ImageFont.truetype("G:\洪荒创意字体包1.0\中文\汉仪尚巍手书.ttf",120)  # 使用自定义字体
+    title_font2 = ImageFont.truetype('G:\洪荒创意字体包1.0\中文\汉仪闫锐敏行楷简.ttf',80)
+    subtitle_font = ImageFont.truetype("G:\洪荒创意字体包1.0\中文\包图小白体.ttf",60)
+    body_font1 = ImageFont.truetype("G:\洪荒创意字体包1.0\中文\方正盛世楷书简体_中.TTF",30)
+    mascot_font1 = ImageFont.truetype("G:\洪荒创意字体包1.0\中文\汉仪趣黑.otf",25)
+    mascot_font2 = ImageFont.truetype("G:\洪荒创意字体包1.0\中文\包图小白体.ttf",40)
+    title_color = (0, 0, 0)  # 白色
+    mascot_color = (128, 0, 128)
+    
+    
+    ##drawing picture
+    page = Image.new('RGB', (page_width, page_height), background_color)
+    draw = ImageDraw.Draw(page)
+    page.paste(im2_new, (0,0))
+    draw.text((30,50), title_text1, title_color,font=title_font1)
+    draw.text((30,50), title_text2, title_color,font=title_font2)
+    draw.text((30,300), dau_str, title_color,font=body_font1)
+    draw.text((30,350), mau_str, title_color,font=body_font1)
+    draw.text((30,420), '一.获赞数TOP5',(0,160,0) ,font=subtitle_font)
+    draw.text((50,500), body_text1, title_color,font=body_font1)
+    draw.text((30,500+30*(count_line+2)), '二.今日词云', (0,160,0),font=subtitle_font)
+    page.paste(im1_new, (50, 500+30*(count_line+5)))
+    draw.text((50,500+30*(count_line+19)),text_command,title_color,font=body_font1)
+    draw.text((0,500+30*(count_line+25)),text_mascot,title_color,font=mascot_font1)
+    draw.text((50,500+30*(count_line+40)),"今日吉祥物："+today_mascot,title_color,font=mascot_font2)
+    draw.text((0,510+30*(count_line+41)),'—— '*10,title_color,font=body_font1)
+    page.paste(im3_new, (0, 480+30*(count_line+43)))
+    page.tofile(
+    
+    return
+    
