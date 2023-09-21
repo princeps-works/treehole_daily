@@ -25,7 +25,6 @@ def news_drawing():
     count_line = 1
     for st in sorted_text:
         sp = st[0]
-        #st_all = ''.join(sp)
         st_setype = ''
         i = 1
         for wd in sp:
