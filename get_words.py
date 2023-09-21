@@ -4,6 +4,7 @@ import pyfiglet
 from cowsay import cowsay
 import random
 import world_cloud 
+import os
 
 def news_drawing():
     ##get words
