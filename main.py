@@ -10,6 +10,7 @@ def main():
     delta = datetime.timedelta(days=-1)
     yesterday = today + delta
     newspaper = news_drawing()
+    newspaper.to_file(f"./data/output/{yesterday}/newspaper.png")
     with open(f"./data/output/{yesterday}/newspaper.png", "rb") as f:
         send(f)
 
