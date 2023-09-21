@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw, ImageFont
 import pyfiglet
 from cowsay import cowsay
 import random
-
+from world_cloud import get_text_
 ##get words
 def get_text_(db_url: str, sql: str):
     engine = sqlalchemy.create_engine(db_url)
