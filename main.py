@@ -9,8 +9,8 @@ def main():
     today = datetime.date.today()
     delta = datetime.timedelta(days=-1)
     yesterday = today + delta
-    newspaper = 
-    with open(f"./data/output/{yesterday}.png", "rb") as f:
+    newspaper = news_drawing()
+    with open(f"./data/output/{yesterday}/newspaper.png", "rb") as f:
         send(f)
 
 
