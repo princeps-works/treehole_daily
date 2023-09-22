@@ -80,12 +80,12 @@ def news_drawing():
     im3_new = im3.resize((580,500), box=None, reducing_gap=None)
     title_text1 = "树洞日报"
     title_text2 = "\n \n Treehole Daily"
-    title_font1 = ImageFont.truetype("G:\洪荒创意字体包1.0\中文\汉仪尚巍手书.ttf",120)  # 使用自定义字体
-    title_font2 = ImageFont.truetype('G:\洪荒创意字体包1.0\中文\汉仪闫锐敏行楷简.ttf',80)
-    subtitle_font = ImageFont.truetype("G:\洪荒创意字体包1.0\中文\包图小白体.ttf",60)
-    body_font1 = ImageFont.truetype("G:\洪荒创意字体包1.0\中文\方正盛世楷书简体_中.TTF",30)
-    mascot_font1 = ImageFont.truetype("G:\洪荒创意字体包1.0\中文\汉仪趣黑.otf",25)
-    mascot_font2 = ImageFont.truetype("G:\洪荒创意字体包1.0\中文\包图小白体.ttf",40)
+    title_font1 = ImageFont.truetype(".\汉仪尚巍手书.ttf",120)  # 使用自定义字体
+    title_font2 = ImageFont.truetype('.\汉仪闫锐敏行楷简.ttf',80)
+    subtitle_font = ImageFont.truetype(".\包图小白体.ttf",60)
+    body_font1 = ImageFont.truetype(".\方正盛世楷书简体_中.TTF",30)
+    mascot_font1 = ImageFont.truetype(".\汉仪趣黑.otf",25)
+    mascot_font2 = ImageFont.truetype(".\包图小白体.ttf",40)
     title_color = (0, 0, 0)  # 白色
     mascot_color = (128, 0, 128)
     
